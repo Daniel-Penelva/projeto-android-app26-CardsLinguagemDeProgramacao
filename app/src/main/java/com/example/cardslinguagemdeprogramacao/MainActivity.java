@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +39,52 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+class ViewLinguagemProgramacao{
+    ImageView icone;
+    TextView titulo, descricao;
+}
+
+
+
+class DadosLinguagemProgramacao{
+
+    // Caminho da imagem (icone)
+    private int icone;
+
+    private String titulo;
+    private String descricao;
+
+    public DadosLinguagemProgramacao(int icone, String titulo, String descricao) {
+        this.icone = icone;
+        this.titulo = titulo;
+        this.descricao = descricao;
+    }
+
+    public int getIcone() {
+        return icone;
+    }
+
+    public void setIcone(int icone) {
+        this.icone = icone;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+}
+
 /* Anotações:
 *
 *Para criar uma lista é preciso três coisas:
@@ -49,4 +97,7 @@ public class MainActivity extends AppCompatActivity {
 *
 * Bom Saber:
 * android.R.layout.simple_list_item_1 -> representa o campo de texto do layout
+*
+* Em layout:
+* O atributo 'ScaleType' tem várias opções que definem formatos diferentes da imagem que você deseja colocar.
 * */
