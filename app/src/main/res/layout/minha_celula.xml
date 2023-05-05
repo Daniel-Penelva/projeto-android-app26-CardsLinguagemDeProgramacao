@@ -22,11 +22,11 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageJava"
         app:layout_constraintTop_toBottomOf="@+id/textTitulo" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageIcone"
         android:layout_width="416dp"
         android:layout_height="346dp"
         android:scaleType="centerCrop"
@@ -36,14 +36,14 @@
         app:srcCompat="@drawable/linguagemdeprogramacao" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageJava"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageIcone"
         app:srcCompat="@drawable/java2" />
 
     <TextView
@@ -61,6 +61,6 @@
         android:textColor="@android:color/background_light"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toEndOf="@+id/imageJava"
+        app:layout_constraintTop_toBottomOf="@+id/imageIcone" />
 </androidx.constraintlayout.widget.ConstraintLayout>
