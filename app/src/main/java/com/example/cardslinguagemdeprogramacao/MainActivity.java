@@ -18,9 +18,19 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     String[] listaLingProgramacao = {"JAVA", "PYTHON", "PHP", "RUBY", "JAVASCRIPT", "C", "C++", "C#"};
+
+    // Os icones são as imagens, no caso, as imagens elas são do tipo inteiro, logo tem que declarar do tipo int.
+    int[] listaIcones = {R.drawable.java2, R.drawable.python, R.drawable.php, R.drawable.ruby, R.drawable.javascript, R.drawable.lingc,
+            R.drawable.cmaismais, R.drawable.csharp};
+
+    String[] listaDescricao = {"TEXTO JAVA", "TEXTO PYTHON", "TEXTO PHP", "TEXTO RUBY", "TEXTO JAVASCRIPT", "TEXTO C", "TEXTO C++", "TEXTO C#"};
+
     ListView minhaLista;
 
     @Override
@@ -28,6 +38,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        minhaLista = findViewById(R.id.minhaLista);
+
+        MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
+
+        int i=0;
+        for (String item:listaLingProgramacao){
+
+            DadosLinguagemProgramacao dadosLinguagemProgramacao;
+            dadosLinguagemProgramacao = new DadosLinguagemProgramacao(listaIcones[i],item, listaDescricao[i]);
+
+            meuAdaptador.add(dadosLinguagemProgramacao);
+            i++;
+        }
+
+        minhaLista.setAdapter(meuAdaptador);
+
+      /*
         // Criando um objeto arrayAdapter
         ArrayAdapter<String> meuAdaptador = new ArrayAdapter<String>(getApplicationContext(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, listaLingProgramacao);
@@ -43,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Sua linguagem favorita é: " + listaLingProgramacao[position], Toast.LENGTH_SHORT).show();
             }
         });
+
+       */
     }
 }
 
