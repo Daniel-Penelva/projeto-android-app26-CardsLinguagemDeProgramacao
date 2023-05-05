@@ -3,8 +3,11 @@ package com.example.cardslinguagemdeprogramacao;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +26,14 @@ public class MainActivity extends AppCompatActivity {
         minhaLista = findViewById(R.id.minhaLista);
 
         minhaLista.setAdapter(meuAdaptador);
+
+        //Ação de evento de click na lista
+        minhaLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(MainActivity.this, "Sua linguagem favorita é: " + listaLingProgramacao[position], Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 
