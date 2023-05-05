@@ -8,17 +8,17 @@
 
     <TextView
         android:id="@+id/textDescricao"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="266dp"
+        android:layout_height="84dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@color/item_color_java"
+        android:background="@color/cor_fundo_texto"
         android:gravity="center"
         android:text="Texto"
-        android:textColor="@android:color/background_light"
+        android:textColor="@color/cor_letra"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,24 +26,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textTitulo" />
 
     <ImageView
-        android:id="@+id/imageIcone"
-        android:layout_width="416dp"
-        android:layout_height="346dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/linguagemdeprogramacao" />
-
-    <ImageView
         android:id="@+id/imageJava"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageIcone"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/java2" />
 
     <TextView
@@ -55,12 +45,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:background="@color/item_color_java"
+        android:background="@color/cor_fundo_titulo"
         android:gravity="center"
         android:text="Título"
         android:textColor="@android:color/background_light"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageJava"
-        app:layout_constraintTop_toBottomOf="@+id/imageIcone" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

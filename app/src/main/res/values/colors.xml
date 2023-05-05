@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="cor_layout_celula">#161514</color>
-    <color name="item_color_java">#E93031</color>
+    <color name="cor_fundo_texto">#008577</color>
+    <color name="cor_fundo_titulo">#00574B</color>
+    <color name="cor_letra">#F7F1F5</color>
 </resources>
