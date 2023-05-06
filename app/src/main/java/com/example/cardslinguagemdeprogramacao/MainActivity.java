@@ -2,9 +2,11 @@ package com.example.cardslinguagemdeprogramacao;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,7 +31,14 @@ public class MainActivity extends AppCompatActivity {
     int[] listaIcones = {R.drawable.java2, R.drawable.python, R.drawable.php, R.drawable.ruby, R.drawable.javascript, R.drawable.lingc,
             R.drawable.cmaismais, R.drawable.csharp};
 
-    String[] listaDescricao = {"TEXTO JAVA", "TEXTO PYTHON", "TEXTO PHP", "TEXTO RUBY", "TEXTO JAVASCRIPT", "TEXTO C", "TEXTO C++", "TEXTO C#"};
+    String[] listaDescricao = {"Java é uma linguagem multiplataforma, orientada a objetos e centrada em rede que pode ser usada como uma plataforma em si. É uma linguagem de programação rápida, segura e confiável para codificar tudo, desde aplicações móveis e software empresarial até aplicações de big data e tecnologias do servidor.",
+            "O Python é uma linguagem de programação amplamente usada em aplicações da Web, desenvolvimento de software, ciência de dados e machine learning (ML). Os desenvolvedores usam o Python porque é eficiente e fácil de aprender e pode ser executada em muitas plataformas diferentes.",
+            "PHP é uma linguagem de script do tipo server-side com diversos propósitos. Porém, ela é principalmente utilizada para gerar conteúdos dinâmicos num site. Trata-se de uma linguagem altamente popular devido à sua natureza de código aberto e suas funcionalidades versáteis.",
+            "é empregada principalmente no desenvolvimento de aplicações web, mas também pode ser utilizada em outras aplicações de software.O Ruby está disponível em Windows, Linux e muitos outros sistemas, sendo considerado multiplataforma.",
+            "O JavaScript surgiu como uma tecnologia do lado do navegador para tornar as aplicações Web mais dinâmicas. Ao usar JavaScript, os navegadores passaram a ser capazes de responder a interações do usuário e alterar o layout do conteúdo na página.",
+            "Considerada uma linguagem de alto nível genérica, a C pode ser usada em diversos tipos de projeto, como a criação de aplicativos, sistemas operacionais, drivers, entre outros.",
+            "C++ é uma das linguagens mais versáteis que existem, permitindo desenvolver desde tarefas simples como aplicações na linha de comando ou web, até sistemas complexos de tempo real, muito usadas no mercado financeiro.",
+            "C# é uma linguagem de programação orientada a objetos e orientada a componentes. C# fornece construções de linguagem para dar suporte diretamente a esses conceitos, tornando C# uma linguagem natural para criação e uso de componentes de software."};
 
     ListView minhaLista;
 
@@ -40,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         minhaLista = findViewById(R.id.minhaLista);
 
-        MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
+        final MeuAdaptador meuAdaptador = new MeuAdaptador(getApplicationContext(), R.layout.minha_celula);
 
         int i=0;
         for (String item:listaLingProgramacao){
@@ -54,32 +63,50 @@ public class MainActivity extends AppCompatActivity {
 
         minhaLista.setAdapter(meuAdaptador);
 
-      /*
-        // Criando um objeto arrayAdapter
-        ArrayAdapter<String> meuAdaptador = new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, listaLingProgramacao);
-
-        minhaLista = findViewById(R.id.minhaLista);
-
-        minhaLista.setAdapter(meuAdaptador);
-
         //Ação de evento de click na lista
         minhaLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(MainActivity.this, "Sua linguagem favorita é: " + listaLingProgramacao[position], Toast.LENGTH_SHORT).show();
+
+                DadosLinguagemProgramacao dadosLinguagemProgramacao;
+                dadosLinguagemProgramacao = (DadosLinguagemProgramacao) meuAdaptador.getItem(position);
+
+                criaAlerta(dadosLinguagemProgramacao);
+            }
+        });
+    }
+
+    // Criando um pop-up para informação
+    public void criaAlerta(DadosLinguagemProgramacao dadosLinguagemProgramacao){
+        AlertDialog.Builder meuAlerta;
+        meuAlerta = new AlertDialog.Builder(MainActivity.this);
+
+        meuAlerta.setTitle(dadosLinguagemProgramacao.getTitulo());
+        meuAlerta.setMessage(dadosLinguagemProgramacao.getDescricao());
+
+        // Essa função fecha o pop-up caso clique fora do mesmo
+        meuAlerta.setCancelable(true);
+
+        // Pode inserir um botão também
+        meuAlerta.setPositiveButton("Sair", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "pop-up finalizado", Toast.LENGTH_SHORT).show();
             }
         });
 
-       */
+        // inserindo um icone no pop-up
+        meuAlerta.setIcon(dadosLinguagemProgramacao.getIcone());
+
+        meuAlerta.create().show();
     }
 }
 
 class ViewLinguagemProgramacao{
+    // Criando os atributos icone, titulo e descrição do componente ImageView e TextView da minha_celula.xml
     ImageView icone;
     TextView titulo, descricao;
 }
-
 
 
 class DadosLinguagemProgramacao{
@@ -129,9 +156,6 @@ class MeuAdaptador extends ArrayAdapter{
     public MeuAdaptador(@NonNull Context context, int resource) {
         super(context, resource);
     }
-
-    //
-
 
     @Override
     public void add(@Nullable Object object) {

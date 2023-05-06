@@ -17,13 +17,16 @@
         android:layout_marginRight="8dp"
         android:background="@color/cor_fundo_texto"
         android:gravity="center"
+        android:scrollbars="vertical"
         android:text="Texto"
         android:textColor="@color/cor_letra"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageJava"
-        app:layout_constraintTop_toBottomOf="@+id/textTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/textTitulo"
+        app:layout_constraintVertical_bias="0.001" />
 
     <ImageView
         android:id="@+id/imageJava"
